@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Terminal } from '@xterm/xterm';
 import { FitAddon } from '@xterm/addon-fit';
-import { Sparkles, Brain, FileCode2, Loader2, ShieldAlert, ShieldCheck, Maximize2, Minimize2, ExternalLink } from 'lucide-react';
+import { Sparkles, Brain, FileCode2, Loader2, ShieldAlert, ShieldCheck, ExternalLink } from 'lucide-react';
 import { getTerminalTheme, TerminalTheme, ColorPalette } from '../../styles/theme';
 import { generateWithRouting, generateWithModelAsync, generateReasoningAsync, getModelDisplayName } from '../../engine/KaliTerminusEngine';
 import type { TerminalTab, AppSettings } from '../../stores/appState';
 import type { AICommandSuggestion } from '../../models/AISuggestion';
 import type { Snippet } from '../../models/Snippet';
 import type { Connection } from '../../models/Connection';
-import logoImg from '../../assets/logo.png';
 
 interface TerminalViewProps {
   tab: TerminalTab;
@@ -1055,7 +1054,6 @@ export const TerminalView: React.FC<TerminalViewProps> = ({
   };
   const ghostText = getGhostText();
   const isTypingReasoning = currentBufferRef.current.trim().startsWith('@');
-  const targetEnv = getTargetEnv();
 
   return (
     <div

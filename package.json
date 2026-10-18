@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:package": "node scripts/build-package.js",
+    "build:collect": "node scripts/build-package.js --skip-build",
     "lint": "oxlint",
     "preview": "vite preview",
     "tauri": "tauri"

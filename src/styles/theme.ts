@@ -13,6 +13,7 @@ export interface CustomColorPalette {
   textSecondary: string; // Muted secondary text (e.g. #94a3b8)
   background: string;    // Base background color (e.g. #0b0d14)
   sidebarBg: string;     // Sidebar background (e.g. #111420)
+  border?: string;       // Border color (e.g. rgba(255, 255, 255, 0.08))
 }
 
 export const THEME_PRESETS: Record<string, CustomColorPalette> = {

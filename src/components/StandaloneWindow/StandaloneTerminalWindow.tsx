@@ -14,7 +14,7 @@ import {
   INITIAL_CONNECTIONS,
   INITIAL_SNIPPETS,
 } from '../../stores/appState';
-import { ColorPalette, applyThemeCssVariables } from '../../styles/theme';
+import { applyThemeCssVariables } from '../../styles/theme';
 import type { Connection } from '../../models/Connection';
 import type { Snippet } from '../../models/Snippet';
 import logoImg from '../../assets/logo.png';
@@ -37,7 +37,7 @@ export const StandaloneTerminalWindow: React.FC<StandaloneTerminalWindowProps> =
   const connectionId = propConnectionId || searchParams.get('connectionId') || 'conn-local';
 
   // Load persisted settings
-  const [settings, setSettings] = useState<AppSettings>(() => {
+  const [settings] = useState<AppSettings>(() => {
     const saved = localStorage.getItem('pookie_settings') || localStorage.getItem('myterminal_settings');
     if (saved) {
       try {
@@ -225,7 +225,6 @@ export const StandaloneTerminalWindow: React.FC<StandaloneTerminalWindowProps> =
     isPoppedUp: false,
   };
 
-  const primaryColor = settings.customPalette?.primary || '#38bdf8';
   const bgColor = settings.customPalette?.background || '#090b10';
   const textColor = settings.customPalette?.text || '#f8fafc';
   const borderColor = settings.customPalette?.border || 'rgba(255, 255, 255, 0.08)';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Plus, X, Terminal, FolderTree, Maximize2, Minimize2, ExternalLink } from 'lucide-react';
+import { Plus, X, Terminal, FolderTree, ExternalLink } from 'lucide-react';
 import type { TerminalTab } from '../../stores/appState';
 import { ColorPalette } from '../../styles/theme';
 
@@ -22,7 +22,7 @@ export const TabBarView: React.FC<TabBarViewProps> = ({
   onSelectTab,
   onCloseTab,
   onNewTab,
-  onNewDetachedTab,
+  onNewDetachedTab: _onNewDetachedTab,
   showSftpSidePanel,
   onToggleSftpPanel,
   onTogglePopUp,
