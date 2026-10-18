@@ -1,276 +1,174 @@
 <div align="center">
 
-# ⚡ MyTerminal (Pookie)
-### Next-Gen AI-Native Terminal Emulator & Remote Infrastructure Hub
+<img src="src/assets/logo.png" alt="Pookie Terminal Logo" width="140" />
 
-[![GitHub release](https://img.shields.io/github/v/release/parsevoid/pookie?style=for-the-badge&color=blue)](https://github.com/parsevoid/pookie/releases/latest)
-[![Tauri v2](https://img.shields.io/badge/Tauri-v2.11-24C8D8?style=for-the-badge&logo=tauri&logoColor=white)](https://tauri.app/)
-[![Rust](https://img.shields.io/badge/Rust-2021_Edition-dea584?style=for-the-badge&logo=rust&logoColor=white)](https://www.rust-lang.org/)
-[![React 19](https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Hardware Accelerated](https://img.shields.io/badge/Inference-Metal%20%7C%20CUDA%20%7C%20Vulkan-76B900?style=for-the-badge&logo=nvidia&logoColor=white)](https://github.com/ggerganov/llama.cpp)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
+# Pookie (Terminal)
 
-<br/>
+**A fast, native terminal emulator with on-device local AI, SSH host manager, and drag-and-drop SFTP.**
 
-**MyTerminal** (codename *Pookie*) is a high-performance cross-platform terminal emulator built on **Tauri v2**, **Rust**, **React 19**, and **xterm.js**. It features embedded, 100% offline local LLM inference via hardware-accelerated **llama.cpp**, unified SSH connection & credential management, full-fledged SFTP file manager with drag-and-drop, tab and detached pop-up window multiplexing, and reactive custom theme engines.
-
-<br/>
-
-```
- ┌────────────────────────────────────────────────────────────────────────┐
- │  >_ MyTerminal Workspace                                      [—] [O] [X]
- ├───────────┬────────────────────────────────────────────────┬───────────┤
- │  HOSTS    │  tab 1: local-zsh   tab 2: prod-srv  [+]  [^]  │  SFTP /   │
- │  • dev-01 │  ────────────────────────────────────────────  │  AI PANEL │
- │  • aws-ec2│  yogesh@macbook cross-platform % git status    │  • upload │
- │  • home   │  On branch main                                │  • edit   │
- │           │                                                │  • prompt │
- └───────────┴────────────────────────────────────────────────┴───────────┘
-```
+[![GitHub release](https://img.shields.io/github/v/release/parsevoid/pookie?style=flat-square&color=2563eb)](https://github.com/parsevoid/pookie/releases/latest)
+[![Tauri v2](https://img.shields.io/badge/Tauri-v2.11-24C8D8?style=flat-square&logo=tauri&logoColor=white)](https://tauri.app/)
+[![Rust](https://img.shields.io/badge/Rust-2021-dea584?style=flat-square&logo=rust&logoColor=white)](https://www.rust-lang.org/)
+[![React 19](https://img.shields.io/badge/React-19.2-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![License](https://img.shields.io/badge/License-MIT-gray.svg?style=flat-square)](LICENSE)
 
 </div>
 
 ---
 
-## 📥 Download Pookie (Latest Release)
+Most terminal setups force you to juggle separate tools: a terminal window, an SSH config file, an SFTP client like Cyberduck or FileZilla to move files, and cloud-based AI tools that send your proprietary terminal commands over the internet.
 
-Select your platform to download the pre-compiled native installer:
-
-| Platform | Architecture | Package Format | Download Link | Verification |
-| :--- | :---: | :---: | :---: | :---: |
-| 🍏 **macOS** | Apple Silicon (M1 / M2 / M3 / M4) | `.dmg` (Disk Image) | [⬇️ **Download .dmg (arm64)**](https://github.com/parsevoid/pookie/releases/latest/download/Pookie_0.1.0_aarch64.dmg) | [Checksums](https://github.com/parsevoid/pookie/releases/latest) |
-| 🍏 **macOS** | Intel (x86_64) | `.dmg` (Disk Image) | [⬇️ **Download .dmg (x64)**](https://github.com/parsevoid/pookie/releases/latest/download/Pookie_0.1.0_x64.dmg) | [Checksums](https://github.com/parsevoid/pookie/releases/latest) |
-| 🍏 **macOS** | Universal Bundle | `.app` (Archive) | [⬇️ **Download .app bundle**](https://github.com/parsevoid/pookie/releases/latest/download/Pookie.app.tar.gz) | [Checksums](https://github.com/parsevoid/pookie/releases/latest) |
-| 🪟 **Windows** | Windows 10 / 11 (x64) | `.exe` (NSIS Setup) | [⬇️ **Download Setup .exe**](https://github.com/parsevoid/pookie/releases/latest/download/Pookie_0.1.0_x64-setup.exe) | [Checksums](https://github.com/parsevoid/pookie/releases/latest) |
-| 🪟 **Windows** | Windows 10 / 11 (x64) | `.msi` (Enterprise) | [⬇️ **Download .msi Installer**](https://github.com/parsevoid/pookie/releases/latest/download/Pookie_0.1.0_x64_en-US.msi) | [Checksums](https://github.com/parsevoid/pookie/releases/latest) |
-| 🐧 **Linux** | Ubuntu / Debian / Mint | `.deb` (Debian Package) | [⬇️ **Download .deb (amd64)**](https://github.com/parsevoid/pookie/releases/latest/download/pookie_0.1.0_amd64.deb) | [Checksums](https://github.com/parsevoid/pookie/releases/latest) |
-| 🐧 **Linux** | All Linux Distributions | `.AppImage` (Portable) | [⬇️ **Download .AppImage**](https://github.com/parsevoid/pookie/releases/latest/download/pookie_0.1.0_amd64.AppImage) | [Checksums](https://github.com/parsevoid/pookie/releases/latest) |
-
-> 💡 *Can't find your version? Check the [All Releases](https://github.com/parsevoid/pookie/releases) page for release notes and previous builds.*
+**Pookie** brings everything into one fast desktop application:
+1. A zero-latency local terminal backed by native Rust PTY.
+2. An **on-device LLM engine** (`llama.cpp`) running quantized GGUF models directly on your GPU (Apple Metal or NVIDIA CUDA) with zero data leaving your machine.
+3. An integrated **SSH host manager** and **graphical SFTP explorer** with drag-and-drop uploads and external editor sync (VS Code, Cursor, Zed).
+4. Tab management with detached pop-out windows and custom themes.
 
 ---
 
-## 🌟 Key Features
+## Downloads
 
-### 🖥️ Native Terminal Core
-- **Zero-Latency PTY Backend**: Backed by Rust `portable-pty` with asynchronous I/O and non-blocking streaming.
-- **Modern Terminal Capabilities**: Driven by `@xterm/xterm` with `@xterm/addon-fit`, full 24-bit truecolor support, cursor styling, and dynamic viewport reflow.
-- **Bi-directional Window Multiplexing**: Seamlessly switch between tabbed layouts, side-by-side split panes, and detached standalone OS windows that synchronize settings and state in real-time.
+Pre-built binaries are available for macOS, Windows, and Linux. Choose the installer for your system:
 
-### 🧠 Embedded On-Device AI Engine (`KaliTerminusEngine`)
-- **Zero-Cloud, Private & Offline**: Execute quantized GGUF models directly on your hardware via native `llama-cpp-2` bindings.
-- **Hardware Acceleration**: Automatic Metal acceleration on Apple Silicon (macOS), CUDA support on NVIDIA GPUs, and Vulkan on cross-vendor hardware.
-- **Intelligent Assistant & Command Palettes**:
-  - `AI Command Palette` (`⌘K` / `Ctrl+K`): Translates plain English intents into tested shell commands and contextual workflows.
-  - `Snippet Palette` (`#` prefix or `⌘P`): Instant fuzzy search across your curated command snippet library with parameter interpolation.
-- **Integrated Model Manager**: In-app one-click downloading, verification, and memory-safe swapping of models.
+| Platform | Architecture | Type | Download |
+| :--- | :--- | :--- | :--- |
+| ![macOS](https://img.shields.io/badge/macOS-000000?style=flat-square&logo=apple&logoColor=white) | Apple Silicon (M1/M2/M3/M4) | DMG Installer | [![Download .dmg](https://img.shields.io/badge/Download-.dmg_(Apple_Silicon)-1e293b?style=flat-square&logo=apple&logoColor=white)](https://github.com/parsevoid/pookie/releases/latest/download/Pookie_0.1.0_aarch64.dmg) |
+| ![macOS](https://img.shields.io/badge/macOS-000000?style=flat-square&logo=apple&logoColor=white) | Intel (x86_64) | DMG Installer | [![Download .dmg](https://img.shields.io/badge/Download-.dmg_(Intel)-334155?style=flat-square&logo=apple&logoColor=white)](https://github.com/parsevoid/pookie/releases/latest/download/Pookie_0.1.0_x64.dmg) |
+| ![macOS](https://img.shields.io/badge/macOS-000000?style=flat-square&logo=apple&logoColor=white) | macOS Universal | App Bundle | [![Download .app](https://img.shields.io/badge/Download-.app.tar.gz-475569?style=flat-square&logo=apple&logoColor=white)](https://github.com/parsevoid/pookie/releases/latest/download/Pookie.app.tar.gz) |
+| ![Windows](https://img.shields.io/badge/Windows-0078D4?style=flat-square&logo=windows&logoColor=white) | Windows 10 / 11 (64-bit) | Setup (.exe) | [![Download .exe](https://img.shields.io/badge/Download-Installer_(.exe)-0284c7?style=flat-square&logo=windows&logoColor=white)](https://github.com/parsevoid/pookie/releases/latest/download/Pookie_0.1.0_x64-setup.exe) |
+| ![Windows](https://img.shields.io/badge/Windows-0078D4?style=flat-square&logo=windows&logoColor=white) | Windows 10 / 11 (64-bit) | MSI Package | [![Download .msi](https://img.shields.io/badge/Download-Enterprise_(.msi)-0369a1?style=flat-square&logo=windows&logoColor=white)](https://github.com/parsevoid/pookie/releases/latest/download/Pookie_0.1.0_x64_en-US.msi) |
+| ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=flat-square&logo=ubuntu&logoColor=white) | Debian / Ubuntu / Mint | DEB Package | [![Download .deb](https://img.shields.io/badge/Download-.deb_(amd64)-c2410c?style=flat-square&logo=ubuntu&logoColor=white)](https://github.com/parsevoid/pookie/releases/latest/download/pookie_0.1.0_amd64.deb) |
+| ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black) | Any 64-bit Linux | AppImage | [![Download .AppImage](https://img.shields.io/badge/Download-.AppImage-1e293b?style=flat-square&logo=linux&logoColor=white)](https://github.com/parsevoid/pookie/releases/latest/download/pookie_0.1.0_amd64.AppImage) |
 
-### 🌐 Secure SSH & SFTP Ecosystem
-- **Remote Host Management**: Store, group, and connect to remote servers with configurable ports, users, and jump-hosts.
-- **Secure Keyring Storage**: Encrypted credential storage for passwords and passphrases with automated host-key verification and trust handshakes.
-- **Full Graphical SFTP Suite**:
-  - Bi-directional drag-and-drop file upload/download.
-  - Remote file system browsing, recursive directory creation, renaming, and atomic deletion.
-  - Direct integration with external editors (VS Code, Cursor, Zed, Sublime Text).
-  - Integrated collapsible side panel and standalone dedicated SFTP browser.
-
-### 🎨 Hyper-Reactive Theming & Personalization
-- **CSS Variable Injection**: Dynamic token reactivity across typography, borders, background blur, and glow accents.
-- **Custom Palettes**: Select from curated developer palettes or design your own hex themes with instant preview.
-- **Custom Wallpaper Persistence**: Store and load custom desktop backgrounds via local storage and indexed persistence buffers.
-- **Window Opacity & Vibrancy**: Fine-tune background transparency with native platform window blur.
+Every release includes a `SHA256SUMS.txt` file on the [GitHub Releases](https://github.com/parsevoid/pookie/releases/latest) page so you can verify the integrity of your download.
 
 ---
 
-## 🏗️ System Architecture
+## What's Inside
 
-```mermaid
-flowchart TB
-    subgraph Frontend ["Frontend Layer (React 19 + TypeScript + Vite)"]
-        UI["Main Window (App.tsx)"]
-        TabMgr["Tab & Pane Multiplexer (TabBarView / StandaloneWindow)"]
-        TermView["xterm.js Viewports (TerminalView.tsx)"]
-        SFTPUI["SFTP Drag & Drop Explorer (SFTPFilesView.tsx)"]
-        AIEngine["KaliTerminusEngine.ts & Model Registry"]
-        AppState["Zustand / Reactive Store (appState.ts)"]
-    end
+### Native Terminal
+- Driven by `@xterm/xterm` with `@xterm/addon-fit` on the frontend and `portable-pty` in Rust.
+- Full 24-bit RGB truecolor, smooth font rendering, and instant resizing without cursor misalignment.
+- Multi-tab management, side-by-side pane container, and the ability to pop any tab out into a standalone window that continues sharing settings in real time.
 
-    subgraph IPC ["Tauri v2 IPC Bridge"]
-        Commands["tauri::invoke (Commands)"]
-        Events["tauri::Emitter (PTY Output & Download Streams)"]
-    end
+### On-Device AI Command Assistant
+- **100% Offline & Private**: Uses embedded `llama-cpp-2` bindings to run quantized `.gguf` models directly on your hardware. No API keys, no subscriptions, and no external network calls required.
+- **Hardware Acceleration**: Utilizes Apple Metal on macOS, NVIDIA CUDA on Linux/Windows, and Vulkan on cross-vendor graphics cards.
+- **Command Palette (`Cmd+K` / `Ctrl+K`)**: Describe what you want in plain words (e.g., *"find all files modified in the last 2 hours larger than 50MB"*), and get verified, runnable shell commands.
+- **Snippet Library (`#` or `Cmd+P`)**: Search custom snippets instantly by prefixing queries with `#`.
+- **Model Switcher**: Easily download and swap models inside **Settings -> Models**:
+  - **SmolLM2 360M**: Ultra-fast (~512MB RAM), ideal for real-time keystroke suggestions.
+  - **Qwen2.5-Coder 1.5B**: Great for Bash and shell script generation (~1.5GB RAM).
+  - **Granite 3.3 2B**: IBM's logic-focused model for complex command sequences (~2GB RAM).
+  - **SmolLM2 3B / Qwen3**: Higher accuracy models for in-depth troubleshooting.
 
-    subgraph Backend ["Rust Backend Core (src-tauri)"]
-        PtyMgr["PTY Manager (portable-pty)"]
-        SSHModule["SSH Client & Host Key Verifier (ssh/)"]
-        SFTPService["SFTP Protocol Engine (sftp/service.rs)"]
-        LLMInference["llama-cpp-2 Engine (local_inference.rs)"]
-        Downloader["Model Stream Downloader (downloader.rs)"]
-    end
+### Remote SSH & SFTP Manager
+- **Connection Profiles**: Save servers with host, port, username, key file, or password.
+- **Host Key Safety**: Automatic known-hosts verification with fingerprint confirmation dialogs.
+- **Side Panel & Standalone SFTP**:
+  - Drag files from your desktop directly into the SFTP pane to upload.
+  - Download remote files or entire folders with a click.
+  - Open any remote file directly in your preferred desktop editor (VS Code, Cursor, Zed, Sublime) with automatic sync-back on save.
 
-    subgraph Hardware ["System & Hardware Acceleration"]
-        GPU["Apple Metal / NVIDIA CUDA / Vulkan"]
-        LocalFS["Local Disk & Keyring Storage"]
-        RemoteHosts["Remote SSH Servers"]
-    end
-
-    UI --> AppState
-    AppState --> TermView
-    AppState --> TabMgr
-    AppState --> SFTPUI
-    AppState --> AIEngine
-
-    TermView <--> Commands
-    TermView <--> Events
-    SFTPUI <--> Commands
-    AIEngine <--> Commands
-
-    Commands --> PtyMgr
-    Commands --> SSHModule
-    Commands --> SFTPService
-    Commands --> LLMInference
-    Commands --> Downloader
-
-    PtyMgr --> Events
-    Downloader --> Events
-
-    LLMInference --> GPU
-    SSHModule --> RemoteHosts
-    SFTPService --> RemoteHosts
-    PtyMgr --> LocalFS
-```
+### Theming & Personalization
+- Includes preset color palettes (Slate, Cyberpunk, Monochrome, Midnight).
+- Adjust window background transparency, blur strength, and UI size presets.
+- Set custom wallpaper backgrounds directly stored and loaded locally.
 
 ---
 
-## 📁 Repository Directory Structure
+## Keyboard Shortcuts
 
-```text
-cross-platform/
-├── package.json                    # Frontend dependencies & package scripts
-├── tsconfig.json                   # TypeScript workspace configuration
-├── vite.config.ts                  # Vite build bundler configuration
-├── .oxlintrc.json                  # High-performance Oxlint rules
-│
-├── builds/                         # Distributable binaries & installers
-│   ├── macos/                      # .dmg, .app, and SHA256SUMS.txt
-│   ├── windows/                    # .exe, .msi, and SHA256SUMS.txt
-│   └── linux/                      # .deb, .AppImage, and SHA256SUMS.txt
-│
-├── scripts/
-│   └── build-package.js            # Automated build collection & packaging pipeline
-│
-├── src/                            # React 19 Frontend Codebase
-│   ├── main.tsx                    # React DOM root bootstrapping
-│   ├── App.tsx                     # Core window layout & modal controllers
-│   ├── App.css / index.css         # Global theme tokens, scrollbars & animations
-│   │
-│   ├── assets/                     # Brand icons, logo, and graphic vectors
-│   ├── components/                 # Modular UI component tree
-│   │   ├── AICommandPalette/       # ⌘K AI prompt input & suggestion renderer
-│   │   ├── Assistant/              # Interactive AI side assistant
-│   │   ├── Modals/                 # Connection Manager & Settings Modal
-│   │   ├── PaneContainer/          # Resizable multi-terminal layout splits
-│   │   ├── Sidebar/                # Left navigation bar (Hosts, Keys, SFTP, Snippets)
-│   │   ├── SnippetCommandPalette/  # Quick-snippet search palette (# prefix)
-│   │   ├── StandaloneWindow/       # Detached popup window controller
-│   │   ├── TabBar/                 # Tabs, pop-out actions, and session counters
-│   │   ├── Terminal/               # xterm.js instance lifecycle & input hooks
-│   │   └── Views/                  # Management views (SSH Hosts, Keys, SFTP, Snippets)
-│   │
-│   ├── engine/
-│   │   └── KaliTerminusEngine.ts   # Natural language command generator & parser
-│   ├── models/
-│   │   ├── index.ts                # Type definitions (SSHHost, Connection, Snippet, etc.)
-│   │   └── model_registry.json     # Curated catalog of on-device LLM models
-│   ├── stores/
-│   │   └── appState.ts             # Central persistent application state store
-│   ├── styles/
-│   │   └── theme.ts                # Predefined palettes, typography, and CSS variable builders
-│   └── utils/
-│       └── wallpaperStorage.ts     # Custom wallpaper local persistence manager
-│
-└── src-tauri/                      # Rust Backend Engine
-    ├── Cargo.toml                  # Rust crate manifest & dependency tree
-    ├── tauri.conf.json             # Tauri v2 window, security, and bundle configuration
-    ├── build.rs                    # Native compilation & build hook
-    ├── .cargo/config.toml          # Native deployment targets (macOS 11.0+)
-    │
-    └── src/
-        ├── main.rs                 # Application entry, state holder, and IPC dispatcher
-        ├── pty.rs                  # Cross-platform PTY management (PTY streams)
-        ├── llm/                    # Embedded AI Inference Engine
-        │   ├── mod.rs              # LLM module public interface
-        │   ├── local_inference.rs  # llama-cpp-2 runtime & context management
-        │   ├── downloader.rs       # Chunked resume-supported GGUF model downloader
-        │   ├── model_registry.rs   # Rust model verification & status tracker
-        │   └── prompt_templates.rs # System prompts tailored for shell commands
-        └── ssh/                    # Remote Networking Subsystem
-            ├── mod.rs              # SSH controller & session verification
-            ├── backend.rs          # Native SSH client integration
-            ├── credentials.rs      # Secure platform keychain / credential manager
-            ├── host_keys.rs        # Known-hosts checking and key fingerprinter
-            ├── editor.rs           # External code editor discovery (VS Code, Zed, etc.)
-            └── sftp/               # SFTP File Transfer Subsystem
-                ├── protocol.rs     # Binary packet serialization & remote primitives
-                └── service.rs      # Upload/download pipeline & drag-and-drop batch worker
-```
+| Shortcut (macOS) | Shortcut (Windows / Linux) | Action |
+| :--- | :--- | :--- |
+| `⌘ K` | `Ctrl + K` | Open AI Command Palette |
+| `⌘ P` | `Ctrl + P` | Open Snippet Search / Quick Switcher |
+| `⌘ T` | `Ctrl + T` | New Terminal Tab |
+| `⌘ W` | `Ctrl + W` | Close Current Tab |
+| `⌘ \` | `Ctrl + \` | Toggle SFTP Side Panel |
+| `⌘ Shift D` | `Ctrl + Shift + D` | Detach active tab into separate floating window |
+| `⌘ ,` | `Ctrl + ,` | Open Settings & Model Manager |
 
 ---
 
-## 🤖 Supported On-Device AI Models
-
-MyTerminal ships with an integrated catalog defined in [`model_registry.json`](file:///Users/yogeshk/Desktop/MyTerminal/cross-platform/src/models/model_registry.json). All models run completely offline on your device:
-
-| Model | Parameters | Quantization | RAM Required | Primary Specialization |
-|:---|:---:|:---:|:---:|:---|
-| **IBM Granite 3.3** | 2.0B | `Q4_K_M` | ~2.0 GB | Deep enterprise shell scripts, complex pipelines, multi-step CLI reasoning. |
-| **Qwen2.5-Coder** | 1.5B | `Q4_K_M` | ~1.5 GB | Precision code generation, Bash scripting, and terminal syntax generation. |
-| **SmolLM2 360M** | 360M | `Q4_K_M` | ~512 MB | Ultra-compact, near-instant keystroke autocomplete with microscopic RAM usage. |
-| **SmolLM2 3B** | 3.0B | `Q4_K_M` | ~2.5 GB | Strong general-purpose instruction following and terminal troubleshooting. |
-| **Qwen3 Series** | 1.7B - 8B | `Q4_K_M` | 1.5 - 6 GB | Scalable high-context reasoning for complex debugging and infrastructure tasks. |
-| **Ternary Bonsai** | 1.7B / 27B | Ternary / 1.58b | ~1.5 - 16 GB | Highly experimental ultra-fast ternary weights for low-power architectures. |
-
----
-
-## ⌨️ Essential Keyboard Shortcuts
-
-| Shortcut (macOS) | Shortcut (Windows/Linux) | Action |
-|:---|:---|:---|
-| `⌘ + K` | `Ctrl + K` | Open **AI Command Palette** (Natural Language to Shell) |
-| `⌘ + P` | `Ctrl + P` | Open **Snippet Command Palette** / Quick Switcher |
-| `⌘ + T` | `Ctrl + T` | New Terminal Tab |
-| `⌘ + W` | `Ctrl + W` | Close Active Terminal Tab |
-| `⌘ + ,` | `Ctrl + ,` | Open Application Settings & Model Manager |
-| `⌘ + \` | `Ctrl + \` | Toggle Integrated SFTP Side Panel |
-| `⌘ + Shift + D` | `Ctrl + Shift + D` | Detach Active Tab into Standalone Floating Window |
-
----
-
-## 🚀 Building from Source
+## Building from Source
 
 ### Prerequisites
-- **Node.js**: `v18.0.0+`
-- **Rust Toolchain**: `rustc`, `cargo` (stable)
-- **C/C++ Build Tools**: Xcode CLI (macOS), Visual Studio Build Tools (Windows), or `build-essential` (Linux)
 
-### Development
+Make sure you have installed:
+1. **Node.js** (v18 or newer)
+2. **Rust & Cargo** (stable toolchain from [rustup.rs](https://rustup.rs))
+3. **C/C++ Build Tools**:
+   - macOS: `xcode-select --install`
+   - Linux: `sudo apt install libwebkit2gtk-4.1-dev build-essential curl libssl-dev libayatana-appindicator3-dev librsvg2-dev`
+   - Windows: Visual Studio C++ Build Tools & WebView2 runtime
+
+### 1. Clone & Install Dependencies
 ```bash
-# 1. Install dependencies
+git clone https://github.com/parsevoid/pookie.git
+cd pookie
 npm install
-
-# 2. Run local dev server with hot reload
-npm run tauri dev
 ```
 
-### Local Release Packaging
+### 2. Run in Development Mode
 ```bash
-# Automatically builds, packages into builds/<platform>/, and calculates SHA256
+npm run tauri dev
+```
+This boots Vite at `http://localhost:5173` and starts the Rust desktop backend with live reload.
+
+### 3. Build Production Installer
+```bash
 npm run build:package
+```
+This runs the full release build, collects the final installers into `builds/<platform>/` (e.g. `builds/macos/Pookie_0.1.0_aarch64.dmg`), and creates a `SHA256SUMS.txt` file automatically.
+
+---
+
+## Codebase Architecture
+
+```text
+pookie/
+├── src/                          # React 19 Frontend
+│   ├── components/
+│   │   ├── Terminal/             # xterm.js terminal integration & input handling
+│   │   ├── AICommandPalette/     # Natural language command input modal
+│   │   ├── SnippetCommandPalette/# Fast snippet picker (# prefix)
+│   │   ├── Sidebar/              # Navigation bar (Hosts, Keys, SFTP, Snippets)
+│   │   ├── TabBar/               # Tabs & window pop-out controls
+│   │   ├── StandaloneWindow/     # Detached pop-up window view
+│   │   └── Views/                # SFTP explorer, SSH hosts & keys tables
+│   ├── engine/
+│   │   └── KaliTerminusEngine.ts # Prompt formatting and routing to local LLM
+│   ├── stores/
+│   │   └── appState.ts           # Central state store (tabs, connections, settings)
+│   └── styles/
+│       └── theme.ts              # Palettes and dynamic CSS variables
+│
+├── src-tauri/                    # Rust Tauri v2 Backend
+│   ├── src/
+│   │   ├── main.rs               # Application lifecycle and IPC command registry
+│   │   ├── pty.rs                # PTY session management via portable-pty
+│   │   ├── llm/                  # llama-cpp-2 inference runtime & GGUF downloader
+│   │   └── ssh/                  # SSH connection handling, credentials, and SFTP service
+│   ├── Cargo.toml                # Rust dependencies and feature flags (metal, cuda, vulkan)
+│   └── tauri.conf.json           # Window configuration and security permissions
+│
+├── builds/                       # Local build output destination (organized by platform)
+└── scripts/
+    └── build-package.js          # Build script that packages and hashes installers
 ```
 
 ---
 
-<div align="center">
-  <sub>Crafted with ❤️ for developers, sysadmins, and security engineers.</sub>
-</div>
+## Privacy & Security
+
+- **Zero Telemetry**: Pookie does not track your keystrokes, terminal commands, or usage statistics.
+- **Local AI Only**: All model inferences happen directly on your CPU/GPU using `llama.cpp`. Your terminal context never leaves your computer.
+- **Encrypted Credentials**: SSH passwords and key passphrases are handled through platform-secured credential storage.
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
