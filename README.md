@@ -31,3 +31,4 @@ npm run tauri build
 - **Application Engine**: Tauri v2, `portable-pty`, `llama-cpp-2`
 - **Networking**: Async Tokio SSH & custom SFTP protocol client
 # pookie
+# pookie
