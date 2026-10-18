@@ -8,6 +8,9 @@ on:
     tags:
       - 'v*'
 
+permissions:
+  contents: write
+
 jobs:
   build-tauri:
     strategy:
@@ -32,7 +35,7 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-          cache-dependency-path: 'cross-platform/package-lock.json'
+          cache-dependency-path: 'package-lock.json'
 
       - name: Setup Rust toolchain
         uses: dtolnay/rust-toolchain@stable
@@ -44,23 +47,28 @@ jobs:
           sudo apt-get install -y libwebkit2gtk-4.1-dev build-essential curl wget file libxdo-dev libssl-dev libayatana-appindicator3-dev librsvg2-dev
 
       - name: Install NPM dependencies
-        working-directory: cross-platform
         run: npm ci
 
       - name: Build frontend & Tauri desktop application
-        working-directory: cross-platform
         env:
           MACOSX_DEPLOYMENT_TARGET: '11.0'
           CMAKE_OSX_DEPLOYMENT_TARGET: '11.0'
         run: npx tauri build
 
       - name: Package & collect installer bundles
-        working-directory: cross-platform
         run: node scripts/build-package.js --skip-build
 
       - name: Upload platform build artifact
         uses: actions/upload-artifact@v4
         with:
           name: MyTerminal-${{ matrix.platform }}-builds
-          path: cross-platform/builds/${{ matrix.platform }}/*
+          path: builds/${{ matrix.platform }}/*
           if-no-files-found: error
+
+      - name: Publish to GitHub Releases
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: builds/${{ matrix.platform }}/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
